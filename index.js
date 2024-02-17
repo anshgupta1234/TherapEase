@@ -27,6 +27,7 @@ async function loadOpenCv(uri) {
 
 let demo = new Heartbeat("webcam", "canvas", HAARCASCADE_URI, 30, 6, 250);
 var ready = loadOpenCv(OPENCV_URI);
+
 ready.then(function() {
   demo.init();
 });

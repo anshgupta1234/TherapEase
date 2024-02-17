@@ -1,0 +1,14 @@
+{
+  "name": "heartbeat",
+  "version": "1.0.0",
+  "description": "monkey",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tensorflow-models/posenet": "^2.2.2"
+  }
+}
