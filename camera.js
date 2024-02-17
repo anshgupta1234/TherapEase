@@ -28,7 +28,8 @@ async function detectPoseInRealTime(video, net) {
   // Main detection loop
   async function poseDetectionFrame() {
       const pose = await net.estimateSinglePose(video, {
-          flipHorizontal: false
+          flipHorizontal: false,
+          imageScaleFactor: 0.3
       });
 
       // Clear canvas
@@ -59,18 +60,9 @@ function drawPose(pose, ctx) {
 
   // Draw skeleton
   let adjacentKeyPoints = posenet.getAdjacentKeyPoints(pose.keypoints, 0.5);
-  if (isIterable(adjacentKeyPoints)) {
-    adjacentKeyPoints.forEach(connection => {
-        try {
-          drawSegment(ctx, connection[0].position, connection[1].position, 'red');
-        } catch (e) {
-          console.log(connection[0].position);
-        }
-    });
-  }
-  else {
-    console.log("potato");
-  }
+  adjacentKeyPoints.forEach(connection => {
+    drawSegment(ctx, connection[0].position, connection[1].position, 'red');
+  })
 }
 
 // Function to draw a line segment between two points
@@ -81,14 +73,6 @@ function drawSegment(ctx, a, b, color) {
   ctx.strokeStyle = color;
   ctx.lineWidth = 2;
   ctx.stroke();
-}
-
-function isIterable(obj) {
-  // checks for null and undefined
-  if (obj == null) {
-    return false;
-  }
-  return typeof obj[Symbol.iterator] === 'function';
 }
 
 // Call the function to start PoseNet
