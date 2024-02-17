@@ -59,22 +59,36 @@ function drawPose(pose, ctx) {
 
   // Draw skeleton
   let adjacentKeyPoints = posenet.getAdjacentKeyPoints(pose.keypoints, 0.5);
-  console.log(adjacentKeyPoints);
-  for (let i = 0; i < adjacentKeyPoints.length; i++) {
-    let connection = adjacentKeyPoints[i];
-    console.log(adjacentKeyPoints[i]);
-    drawSegment(ctx, connection[0].position, connection[1].position, 'red');
+  if (isIterable(adjacentKeyPoints)) {
+    adjacentKeyPoints.forEach(connection => {
+        try {
+          drawSegment(ctx, connection[0].position, connection[1].position, 'red');
+        } catch (e) {
+          console.log(connection[0].position);
+        }
+    });
+  }
+  else {
+    console.log("potato");
   }
 }
 
 // Function to draw a line segment between two points
-function drawSegment(ctx, [ay, ax], [by, bx], color) {
+function drawSegment(ctx, a, b, color) {
   ctx.beginPath();
-  ctx.moveTo(ax, ay);
-  ctx.lineTo(bx, by);
+  ctx.moveTo(a.x, a.y);
+  ctx.lineTo(b.x, b.y);
   ctx.strokeStyle = color;
   ctx.lineWidth = 2;
   ctx.stroke();
+}
+
+function isIterable(obj) {
+  // checks for null and undefined
+  if (obj == null) {
+    return false;
+  }
+  return typeof obj[Symbol.iterator] === 'function';
 }
 
 // Call the function to start PoseNet
