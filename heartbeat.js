@@ -302,13 +302,13 @@ export class Heartbeat {
         bandMask.delete();
         // Infer BPM
         let bpm = result.maxLoc.y * fps / signal.rows * SEC_PER_MIN;
-        console.log(bpm);
+        // console.log(bpm);
         // Draw BPM
         this.drawBPM(bpm);
       }
       signal.delete();
     } else {
-      console.log("signal too small");
+      // console.log("signal too small");
     }
   }
   // Calculate fps from timestamps

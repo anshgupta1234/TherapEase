@@ -7,6 +7,11 @@ async function runPoseNet() {
 
   // Get webcam feed
   const video = document.getElementById('webcam');
+  const video2 = document.getElementById('remote-video');
+
+  const canvas = document.getElementById('canvas');
+  const remote_canvas = document.getElementById('remote_canvas');
+
   if (navigator.mediaDevices.getUserMedia) {
       const stream = await navigator.mediaDevices.getUserMedia({ video: true });
       video.srcObject = stream;
@@ -15,13 +20,17 @@ async function runPoseNet() {
   // Wait for the video to load metadata and play
   video.onloadedmetadata = function() {
       video.play();
-      detectPoseInRealTime(video, net);
+      detectPoseInRealTime(video, net, canvas, false);
+  };
+
+  video2.onloadedmetadata = function() {
+    detectPoseInRealTime(video2, net, remote_canvas, true);
   };
 }
 
 // Function to detect poses in real-time and draw them on the canvas
-async function detectPoseInRealTime(video, net) {
-  const canvas = document.getElementById('canvas');
+async function detectPoseInRealTime(video, net, canvas, clear) {
+
   const ctx = canvas.getContext('2d');
 
   // Set canvas size to match video feed
@@ -36,8 +45,8 @@ async function detectPoseInRealTime(video, net) {
       });
 
       // Clear canvas
-      // ctx.clearRect(0, 0, canvas.width, canvas.height);
-
+      if (clear) ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
       // Draw detected pose
       drawPose(pose, ctx);
 

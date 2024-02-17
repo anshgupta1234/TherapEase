@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Heartbeat</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>Heartbeat demo</h1>
@@ -13,9 +14,13 @@
   <div>
     <video hidden id="webcam" width="640" height="480"></video>
     <canvas id="canvas" width="640" height="480"></canvas>
-
-    <video id="remote-video" width="640" height="480" autoplay ></video>
   </div>
+
+  <div id="remote-container">
+    <video id="remote-video" width="640" height="480" autoplay ></video>
+    <canvas id="remote_canvas" width="640" height="480" ></canvas>
+  </div>
+
   <script type="module" src="index.js"></script>
   <script type="module" src="heartbeat.js"></script>
   <script type="module" src="camera.js"></script>
