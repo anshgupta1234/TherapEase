@@ -83,19 +83,20 @@ function drawPose(pose, ctx) {
           scores: [1, 0, 0, 1, 1, 3, 3, 4, 4, 4, 4, 3, 3, 4, 4, 3, 3]
         }
       });
+    similarity = Math.abs(similarity);
     console.log(similarity);
   } 
   // Draw keypoints
   pose.keypoints.forEach(keypoint => {
-      if (keypoint.score > 0.5 && similarity < 0.90) {
+      if (keypoint.score > 0.5 && similarity < 0.08) {
         ctx.beginPath();
         ctx.arc(keypoint.position.x, keypoint.position.y, 8, 0, 2 * Math.PI);
-        ctx.fillStyle = 'yellow';
+        ctx.fillStyle = 'blue';
         ctx.fill();
       } else if (keypoint.score > 0.5) {
         ctx.beginPath();
         ctx.arc(keypoint.position.x, keypoint.position.y, 8, 0, 2 * Math.PI);
-        ctx.fillStyle = 'blue';
+        ctx.fillStyle = 'yellow';
         ctx.fill();
       }
   });
