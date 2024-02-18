@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   
     async function sendMessageToServer(message) {
-      const response = await fetch("http://10.5.94.111:3001/completions", {
+      const response = await fetch("http://10.27.195.70:3001/completions", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
