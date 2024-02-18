@@ -38,3 +38,7 @@ canvas {
     width: 480px;
     height: 360px;
 }
+
+#join {
+    margin-left: 12px;
+}

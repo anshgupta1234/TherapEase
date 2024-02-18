@@ -48,7 +48,7 @@ async function detectPoseInRealTime(video, net, canvas, clear, view) {
           imageScaleFactor: 0.4
       });
 
-      positionData[view] = pose
+      lastPose = pose
 
       // Clear canvas
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -64,7 +64,7 @@ async function detectPoseInRealTime(video, net, canvas, clear, view) {
   poseDetectionFrame();
 
   // Set an interval to log the pose every 2 seconds
-  // setInterval(() => log(lastPose, view), 2000);
+  setInterval(() => positionData[view] = lastPose, 200);
 }
 
 // Function to draw the detected pose on the canvas
@@ -82,28 +82,28 @@ function drawPose(pose, ctx) {
   pose.keypoints.forEach(keypoint => {
       if (keypoint.score > 0.5 && similarity < 0.90) {
         ctx.beginPath();
-        ctx.arc(keypoint.position.x, keypoint.position.y, 5, 0, 2 * Math.PI);
+        ctx.arc(keypoint.position.x, keypoint.position.y, 8, 0, 2 * Math.PI);
         ctx.fillStyle = 'yellow';
         ctx.fill();
       } else if (keypoint.score > 0.5) {
         ctx.beginPath();
-        ctx.arc(keypoint.position.x, keypoint.position.y, 5, 0, 2 * Math.PI);
+        ctx.arc(keypoint.position.x, keypoint.position.y, 8, 0, 2 * Math.PI);
         ctx.fillStyle = 'blue';
         ctx.fill();
       }
   });
 
   // Draw skeleton
-  let adjacentKeyPoints = posenet.getAdjacentKeyPoints(pose.keypoints, 0.5);
-  if (similarity < 0.90) {
-    adjacentKeyPoints.forEach(connection => {
-      drawSegment(ctx, connection[0].position, connection[1].position, 'yellow');
-    })
-  } else {
-    adjacentKeyPoints.forEach(connection => {
-      drawSegment(ctx, connection[0].position, connection[1].position, 'blue');
-    })
-  }
+  // let adjacentKeyPoints = posenet.getAdjacentKeyPoints(pose.keypoints, 0.5);
+  // if (similarity < 0.90) {
+  //   adjacentKeyPoints.forEach(connection => {
+  //     drawSegment(ctx, connection[0].position, connection[1].position, 'yellow');
+  //   })
+  // } else {
+  //   adjacentKeyPoints.forEach(connection => {
+  //     drawSegment(ctx, connection[0].position, connection[1].position, 'blue');
+  //   })
+  // }
 }
 
 function cosineSimilarity(vecA, vecB) {

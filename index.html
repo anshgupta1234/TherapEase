@@ -28,7 +28,7 @@
         <div class="header">
             <div class="header-left">
                 <a href="index.html" class="logo">
-                    <img src="assets/img/logo.png" width="35" height="35" alt=""> <span>Preclinic</span>
+                    <img src="assets/img/therapease.png" width="35" height="35" alt=""> <span>TherapEase.AI</span>
                 </a>
             </div>
             <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
@@ -109,7 +109,7 @@
                     <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
                         <span class="user-img"><img class="rounded-circle" src="assets/img/user.jpg" width="40" alt="Admin">
 							<span class="status online"></span></span>
-                        <span>Admin</span>
+                        <span>Ansh Gupta</span>
                     </a>
 					<div class="dropdown-menu">
 						<a class="dropdown-item" href="profile.html">My Profile</a>
@@ -136,31 +136,19 @@
                         <li>
                             <a href="index.html"><i class="fa fa-home back-icon"></i> <span>Back to Home</span></a>
                         </li>
-                        <li class="menu-title">Chat Groups <a href="#" class="add-user-icon" data-toggle="modal" data-target="#add_group"><i class="fa fa-plus"></i></a></li>
+                        <li class="menu-title">Current Appointment<a href="#" class="add-user-icon" data-toggle="modal" data-target="#add_group"><i class="fa fa-plus"></i></a></li>
                         <li>
-                            <a href="chat.html">#General</a>
+                            <a href="chat.html">2/18/2024, 9:00 AM</a>
                         </li>
                         <li>
-                            <a href="chat.html">#Video Responsive Survey</a>
+                            <button class="btn btn-primary" type="button" id="join">Join</i></button>
+                        </li>
+                        <li class="menu-title">Upcoming Appointments</li>
+                        <li>
+                            <a href="chat.html">2/25/2024, 5:00 PM</a>
                         </li>
                         <li>
-                            <a href="chat.html">#500rs</a>
-                        </li>
-                        <li>
-                            <a href="chat.html">#warehouse</a>
-                        </li>
-                        <li class="menu-title">Direct Chats <a href="#" class="add-user-icon" data-toggle="modal" data-target="#add_chat_user"><i class="fa fa-plus"></i></a></li>
-                        <li>
-                            <a href="chat.html"><span class="chat-avatar-sm user-img"><img src="assets/img/user.jpg" alt="" class="rounded-circle"><span class="status online"></span></span> John Doe <span class="badge badge-pill bg-danger float-right">1</span></a>
-                        </li>
-                        <li>
-                            <a href="chat.html"><span class="chat-avatar-sm user-img"><img src="assets/img/user.jpg" alt="" class="rounded-circle"><span class="status offline"></span></span> Richard Miles <span class="badge badge-pill bg-danger float-right">18</span></a>
-                        </li>
-                        <li>
-                            <a href="chat.html"><span class="chat-avatar-sm user-img"><img src="assets/img/user.jpg" alt="" class="rounded-circle"><span class="status away"></span></span> John Smith</a>
-                        </li>
-                        <li class="active">
-                            <a href="chat.html"><span class="chat-avatar-sm user-img"><img src="assets/img/user.jpg" alt="" class="rounded-circle"><span class="status online"></span></span> Mike Litorus <span class="badge badge-pill bg-danger float-right">108</span></a>
+                            <a href="chat.html">3/4/2024, 3:00 PM</a>
                         </li>
                     </ul>
                 </div>
@@ -175,10 +163,10 @@
 								<div class="navbar">
                                     <div class="user-details mr-auto">
                                         <div class="float-left user-img m-r-10">
-                                            <a href="profile.html" title="Mike Litorus"><img src="assets/img/user.jpg" alt="" class="w-40 rounded-circle"><span class="status online"></span></a>
+                                            <a href="profile.html" title="Ansh Gupta"><img src="assets/img/user.jpg" alt="" class="w-40 rounded-circle"><span class="status online"></span></a>
                                         </div>
                                         <div class="user-info float-left">
-                                            <a href="profile.html" title="Mike Litorus"><span class="font-bold">Mike Litorus</span></a>
+                                            <a href="profile.html" title="Ansh Gupta"><span class="font-bold">Ansh Gupta</span></a>
                                             <span class="last-seen">Online</span>
                                         </div>
                                     </div>
@@ -212,7 +200,7 @@
                             </div>
                             <div class="chat-footer">
                                 <div class="call-icons">
-                                    <span class="call-duration">00:59</span>
+                                    <span class="call-duration" id="duration">00:00</span>
                                     <ul class="call-items">
                                         <li class="call-item">
                                             <a href="" title="Enable Video" data-placement="top" data-toggle="tooltip">
@@ -258,10 +246,10 @@
                                         <div class="column">
                                             <div>
                                                 <div class="dash-widget">
-                                                    <span class="dash-widget-bg1"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
+                                                    <span class="dash-widget-bg1"><i class="fa fa-child" aria-hidden="true"></i></span>
                                                     <div class="dash-widget-info text-right">
-                                                        <h3>98</h3>
-                                                        <span class="widget-title1">Position Held For<i class="fa fa-check" aria-hidden="true"></i></span>
+                                                        <h3>Warrior Pose</h3>
+                                                        <span class="widget-title1">Next Exercise<i class="fa fa-check" aria-hidden="true"></i></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -285,7 +273,7 @@
                                             </div>
                                             <div>
                                                 <div class="dash-widget">
-                                                    <span class="dash-widget-bg4"><i class="fa fa-stethoscope" aria-hidden="true"></i></span>
+                                                    <span class="dash-widget-bg4"><i class="fa fa-bullseye" aria-hidden="true"></i></span>
                                                     <div class="dash-widget-info text-right">
                                                         <h3 id="spO2">-</h3>
                                                         <span class="widget-title4">Blood Oxygen Levels<i class="fa fa-check" aria-hidden="true"></i></span>

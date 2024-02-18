@@ -1,3 +1,4 @@
+import { min } from "@tensorflow/tfjs";
 import { Heartbeat } from "./heartbeat";
 
 const OPENCV_URI = "https://docs.opencv.org/master/opencv.js";
@@ -14,9 +15,27 @@ const MIN_CORNERS = 5;
 const QUALITY_LEVEL = 0.01;
 const MIN_DISTANCE = 10;
 
-// Call the function initially and whenever the window is resized
-// setVideoSize();
-// window.addEventListener('resize', setVideoSize);
+let startTime = new Date().getTime();
+
+// Update Duration
+setInterval(function() {
+
+    // Get today's date and time
+    var now = new Date().getTime();
+  
+    // Find the distance between now and the count down date
+    var distance = startTime - now;
+  
+    var minutes = Math.abs(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))) - 1;
+    var seconds = Math.abs(Math.floor((distance % (1000 * 60)) / 1000));
+
+    minutes = String(minutes).padStart(2, '0');
+    seconds = String(seconds).padStart(2, '0');
+  
+    // Display the result in the element with id="duration"
+    document.getElementById("duration").innerHTML = minutes + ":" + seconds;
+
+  }, 1000);
 
 // Load opencv when needed
 async function loadOpenCv(uri) {
@@ -86,7 +105,7 @@ let localStream
 let peerConn
 let username
 
-username = "monkey";
+username = "110";
 
 navigator.getUserMedia({
     video: {
