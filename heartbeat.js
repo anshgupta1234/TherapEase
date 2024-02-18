@@ -37,7 +37,7 @@ export class Heartbeat {
         audio: false
       });
     } catch (e) {
-      console.log(e);
+      //console.log(e);
     }
     if (!this.stream) {
       throw new Error('Could not obtain video from webcam.');
@@ -158,8 +158,8 @@ export class Heartbeat {
       this.frameRGB.setTo([255, 0, 0, 255], this.overlayMask);
       cv.imshow(this.canvasId, this.frameRGB);
     } catch (e) {
-      console.log("Error capturing frame:");
-      console.log(e);
+      // console.log("Error capturing frame:");
+      // console.log(e);
     }
   }
   // Run face classifier
@@ -170,7 +170,7 @@ export class Heartbeat {
       this.face = faces.get(0);
       this.faceValid = true;
     } else {
-      console.log("No faces");
+      // console.log("No faces");
       this.invalidateFace();
     }
     faces.delete();
@@ -304,7 +304,7 @@ export class Heartbeat {
         bandMask.delete();
         // Infer BPM
         let bpm = result.maxLoc.y * fps / signal.rows * SEC_PER_MIN;
-        console.log(bpm);
+        //console.log(bpm);
         this.display.innerHTML = parseInt(bpm);
         // Draw BPM
         this.drawBPM(bpm);
