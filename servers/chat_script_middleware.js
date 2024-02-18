@@ -45,5 +45,5 @@ app.post('/completions', async (req, res) => {
 
 // Start the server
 app.listen(port, () => {
-  console.log(`Server is listening at http://10.5.119.71:${port}`);
+  console.log(`Server is listening at http://10.5.94.111:${port}`);
 });

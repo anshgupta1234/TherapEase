@@ -66,7 +66,7 @@ ready.then(function() {
   demo.init();
 });
 
-const webSocket = new WebSocket("ws://10.5.119.71:3000")
+const webSocket = new WebSocket("ws://10.5.94.111:3000")
 
 webSocket.onmessage = (event) => {
     handleSignallingData(JSON.parse(event.data))
