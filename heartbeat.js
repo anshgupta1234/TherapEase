@@ -23,6 +23,8 @@ export class Heartbeat {
     this.windowSize = windowSize;
     this.rppgInterval = rppgInterval;
     this.display = document.getElementById("heartrate");
+    this.display2 = document.getElementById("respiratoryrate");
+
   }
   // Start the video stream
   async startStreaming() {
@@ -294,18 +296,26 @@ export class Heartbeat {
       // Calculate band spectrum limits
       let low = Math.floor(signal.rows * LOW_BPM / SEC_PER_MIN / fps);
       let high = Math.ceil(signal.rows * HIGH_BPM / SEC_PER_MIN / fps);
+      let low2 = Math.floor(signal.rows * 6 / SEC_PER_MIN / fps);
+      let high2 = Math.ceil(signal.rows * 24 / SEC_PER_MIN / fps);
       if (!signal.empty()) {
         // Mask for infeasible frequencies
         let bandMask = cv.matFromArray(signal.rows, 1, cv.CV_8U,
           new Array(signal.rows).fill(0).fill(1, low, high+1));
+        let bandMaskRR = cv.matFromArray(signal.rows, 1, cv.CV_8U,
+          new Array(signal.rows).fill(0).fill(1, low2, high2+1));
         this.drawFrequency(signal, low, high, bandMask);
         // Identify feasible frequency with maximum magnitude
         let result = cv.minMaxLoc(signal, bandMask);
+        let result2 = cv.minMaxLoc(signal, bandMaskRR);
         bandMask.delete();
+        bandMaskRR.delete();
         // Infer BPM
         let bpm = result.maxLoc.y * fps / signal.rows * SEC_PER_MIN;
+        let rr = result2.maxLoc.y * fps / signal.rows * SEC_PER_MIN;
         //console.log(bpm);
         this.display.innerHTML = parseInt(bpm);
+        this.display2.innerHTML= parseInt(rr);
         // Draw BPM
         this.drawBPM(bpm);
       }
