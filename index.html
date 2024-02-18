@@ -210,14 +210,6 @@
                                             <canvas id="remote-canvas" class="overlay-canvas" width="480" height="360"></canvas>
                                         </div>
                                     </div>
-                                    
-                                    <div class="my-video">
-                                        <ul>
-                                            <li>
-                                                <img src="assets/img/user-02.jpg" class="img-fluid" alt="">
-                                            </li>
-                                        </ul>
-                                    </div>
                                 </div>
                             </div>
                             <div class="chat-footer">
@@ -258,104 +250,38 @@
                         <div class="chat-window video-window">
                             <div class="fixed-header">
                                 <ul class="nav nav-tabs nav-tabs-bottom">
-                                    <li class="nav-item"><a class="nav-link active" href="#calls_tab" data-toggle="tab">Calls</a></li>
+                                    <li class="nav-item"><a class="nav-link active" href="#metrics_tab" data-toggle="tab">Metrics</a></li>
                                     <li class="nav-item"><a class="nav-link" href="#chats_tab" data-toggle="tab">Chats</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#profile_tab" data-toggle="tab">Profile</a></li>
                                 </ul>
                             </div>
                             <div class="tab-content chat-contents">
-                                <div class="content-full tab-pane show active" id="calls_tab">
+                                <div class="content-full tab-pane show active" id="metrics_tab">
                                     <div class="chat-wrap-inner">
-                                        <div class="chat-box">
-                                            <div class="chats">
-                                                <div class="chat chat-left">
-                                                    <div class="chat-avatar">
-                                                        <a href="profile.html" class="avatar">
-                                                            <img alt="John Doe" src="assets/img/user.jpg" class="img-fluid rounded-circle">
-                                                        </a>
-                                                    </div>
-                                                    <div class="chat-body">
-                                                        <div class="chat-bubble">
-                                                            <div class="chat-content">
-                                                                <span class="chat-user">You</span> <span class="chat-time">8:35 am</span>
-                                                                <div class="call-details">
-                                                                    <i class="material-icons">phone_missed</i>
-                                                                    <div class="call-info">
-                                                                        <div class="call-user-details">
-                                                                            <span class="call-description">Jeffrey Warden missed the call</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                        <div class="column">
+                                            <div>
+                                                <div class="dash-widget">
+                                                    <span class="dash-widget-bg1"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
+                                                    <div class="dash-widget-info text-right">
+                                                        <h3>98</h3>
+                                                        <span class="widget-title1">Position Held For<i class="fa fa-check" aria-hidden="true"></i></span>
                                                     </div>
                                                 </div>
-                                                <div class="chat chat-left">
-                                                    <div class="chat-avatar">
-                                                        <a href="profile.html" class="avatar">
-                                                            <img alt="John Doe" src="assets/img/user.jpg" class="img-fluid rounded-circle">
-                                                        </a>
-                                                    </div>
-                                                    <div class="chat-body">
-                                                        <div class="chat-bubble">
-                                                            <div class="chat-content">
-                                                                <span class="chat-user">John Doe</span> <span class="chat-time">8:35 am</span>
-                                                                <div class="call-details">
-                                                                    <i class="material-icons">call_end</i>
-                                                                    <div class="call-info">
-                                                                        <div class="call-user-details"><span class="call-description">This call has ended</span></div>
-                                                                        <div class="call-timing">Duration: <strong>5 min 57 sec</strong></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                            </div>
+                                            <div>
+                                                <div class="dash-widget">
+                                                    <span class="dash-widget-bg2"><i class="fa fa-stethoscope" aria-hidden="true"></i></span>
+                                                    <div class="dash-widget-info text-right">
+                                                        <h3>98</h3>
+                                                        <span class="widget-title2">Respiratory Rate<i class="fa fa-check" aria-hidden="true"></i></span>
                                                     </div>
                                                 </div>
-                                                <div class="chat-line">
-                                                    <span class="chat-date">January 29th, 2015</span>
-                                                </div>
-                                                <div class="chat chat-left">
-                                                    <div class="chat-avatar">
-                                                        <a href="profile.html" class="avatar">
-                                                            <img alt="John Doe" src="assets/img/user.jpg" class="img-fluid rounded-circle">
-                                                        </a>
-                                                    </div>
-                                                    <div class="chat-body">
-                                                        <div class="chat-bubble">
-                                                            <div class="chat-content">
-                                                                <span class="chat-user">Richard Miles</span> <span class="chat-time">8:35 am</span>
-                                                                <div class="call-details">
-                                                                    <i class="material-icons">phone_missed</i>
-                                                                    <div class="call-info">
-                                                                        <div class="call-user-details">
-                                                                            <span class="call-description">You missed the call</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="chat chat-left">
-                                                    <div class="chat-avatar">
-                                                        <a href="profile.html" class="avatar">
-                                                            <img alt="John Doe" src="assets/img/user.jpg" class="img-fluid rounded-circle">
-                                                        </a>
-                                                    </div>
-                                                    <div class="chat-body">
-                                                        <div class="chat-bubble">
-                                                            <div class="chat-content">
-                                                                <span class="chat-user">You</span> <span class="chat-time">8:35 am</span>
-                                                                <div class="call-details">
-                                                                    <i class="material-icons">ring_volume</i>
-                                                                    <div class="call-info">
-                                                                        <div class="call-user-details">
-                                                                            <a href="#" class="call-description call-description--linked" data-qa="call_attachment_link">Calling John Smith ...</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                            </div>
+                                            <div>
+                                                <div class="dash-widget">
+                                                    <span class="dash-widget-bg3"><i class="fa fa-heartbeat" aria-hidden="true"></i></span>
+                                                    <div class="dash-widget-info text-right">
+                                                        <h3 id="heartrate">-</h3>
+                                                        <span class="widget-title3">Heart Rate<i class="fa fa-check" aria-hidden="true"></i></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -459,101 +385,6 @@
                                                             <span class="input-group-append">
 																<button class="btn btn-primary" type="button"><i class="fa fa-send"></i></button>
 															</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="content-full tab-pane" id="profile_tab">
-                                    <div class="display-table">
-                                        <div class="table-row">
-                                            <div class="table-body">
-                                                <div class="table-content">
-                                                    <div class="chat-profile-img">
-                                                        <div class="edit-profile-img">
-                                                            <img src="assets/img/user.jpg" alt="">
-                                                            <span class="change-img">Change Image</span>
-                                                        </div>
-                                                        <h3 class="user-name m-t-10 mb-0">John Doe</h3>
-                                                        <small class="text-muted">MBBS, MD</small>
-                                                        <a href="edit-profile.html" class="btn btn-primary edit-btn"><i class="fa fa-pencil"></i></a>
-                                                    </div>
-                                                    <div class="chat-profile-info">
-                                                        <ul class="user-det-list">
-                                                            <li>
-                                                                <span>Username:</span>
-                                                                <span class="float-right text-muted">johndoe</span>
-                                                            </li>
-                                                            <li>
-                                                                <span>DOB:</span>
-                                                                <span class="float-right text-muted">24 July</span>
-                                                            </li>
-                                                            <li>
-                                                                <span>Email:</span>
-                                                                <span class="float-right text-muted"><a href="http://cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="59333631373d363c193c21383429353c773a3634">[email&#160;protected]</a></span>
-                                                            </li>
-                                                            <li>
-                                                                <span>Phone:</span>
-                                                                <span class="float-right text-muted">9876543210</span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div>
-                                                        <ul class="nav nav-tabs nav-tabs-solid nav-justified mb-0">
-                                                            <li class="nav-item"><a class="nav-link active" href="#all_files" data-toggle="tab">All Files</a></li>
-                                                            <li class="nav-item"><a class="nav-link" href="#my_files" data-toggle="tab">My Files</a></li>
-                                                        </ul>
-                                                        <div class="tab-content">
-                                                            <div class="tab-pane show active" id="all_files">
-                                                                <ul class="files-list">
-                                                                    <li>
-                                                                        <div class="files-cont">
-                                                                            <div class="file-type">
-                                                                                <span class="files-icon"><i class="fa fa-file-pdf-o"></i></span>
-                                                                            </div>
-                                                                            <div class="files-info">
-                                                                                <span class="file-name text-ellipsis">AHA Selfcare Mobile Application Test-Cases.xls</span>
-                                                                                <span class="file-author"><a href="#">Loren Gatlin</a></span> <span class="file-date">May 31st at 6:53 PM</span>
-                                                                            </div>
-                                                                            <ul class="files-action">
-                                                                                <li class="dropdown dropdown-action">
-                                                                                    <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-h"></i></a>
-                                                                                    <div class="dropdown-menu">
-                                                                                        <a class="dropdown-item" href="javascript:void(0)">Download</a>
-                                                                                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#share_files">Share</a>
-                                                                                    </div>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                            <div class="tab-pane" id="my_files">
-                                                                <ul class="files-list">
-                                                                    <li>
-                                                                        <div class="files-cont">
-                                                                            <div class="file-type">
-                                                                                <span class="files-icon"><i class="fa fa-file-pdf-o"></i></span>
-                                                                            </div>
-                                                                            <div class="files-info">
-                                                                                <span class="file-name text-ellipsis">AHA Selfcare Mobile Application Test-Cases.xls</span>
-                                                                                <span class="file-author"><a href="#">John Doe</a></span> <span class="file-date">May 31st at 6:53 PM</span>
-                                                                            </div>
-                                                                            <ul class="files-action">
-                                                                                <li class="dropdown dropdown-action">
-                                                                                    <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-h"></i></a>
-                                                                                    <div class="dropdown-menu">
-                                                                                        <a class="dropdown-item" href="javascript:void(0)">Download</a>
-                                                                                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#share_files">Share</a>
-                                                                                    </div>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>

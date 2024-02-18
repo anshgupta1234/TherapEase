@@ -22,11 +22,12 @@ export class Heartbeat {
     this.targetFps = targetFps;
     this.windowSize = windowSize;
     this.rppgInterval = rppgInterval;
+    this.display = document.getElementById("heartrate");
   }
   // Start the video stream
   async startStreaming() {
     try {
-      
+
       this.stream = await navigator.mediaDevices.getUserMedia({
         video: {
           facingMode: 'user',
@@ -303,7 +304,8 @@ export class Heartbeat {
         bandMask.delete();
         // Infer BPM
         let bpm = result.maxLoc.y * fps / signal.rows * SEC_PER_MIN;
-        // console.log(bpm);
+        console.log(bpm);
+        this.display.innerHTML = parseInt(bpm);
         // Draw BPM
         this.drawBPM(bpm);
       }
