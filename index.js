@@ -100,7 +100,6 @@ function sendData(data) {
     webSocket.send(JSON.stringify(data))
 }
 
-
 let localStream
 let peerConn
 let username

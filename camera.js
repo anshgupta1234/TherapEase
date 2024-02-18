@@ -1,5 +1,6 @@
 import '@tensorflow/tfjs'
 import * as posenet from '@tensorflow-models/posenet'
+import { poseSimilarity } from 'posenet-similarity';
 
 async function runPoseNet() {
   // Load PoseNet model
@@ -73,9 +74,15 @@ function drawPose(pose, ctx) {
   let flattened2 = [];
   let similarity = 0;
   if (positionData.positionTrainee != null && positionData.positionTrainer != null) {
-    flattened1 = flattenKeypoints(positionData.positionTrainee.keypoints)
-    flattened2 = flattenKeypoints(positionData.positionTrainer.keypoints)
-    similarity = cosineSimilarity(flattened1, flattened2);
+    similarity = poseSimilarity(positionData.positionTrainee,
+      positionData.positionTrainer,
+      { 
+        strategy: 'weightedDistance',
+        customWeight: {
+          mode: 'multiply',
+          scores: [1, 0, 0, 1, 1, 3, 3, 4, 4, 4, 4, 3, 3, 4, 4, 3, 3]
+        }
+      });
     console.log(similarity);
   } 
   // Draw keypoints
