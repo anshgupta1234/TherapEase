@@ -26,6 +26,7 @@ export class Heartbeat {
   // Start the video stream
   async startStreaming() {
     try {
+      
       this.stream = await navigator.mediaDevices.getUserMedia({
         video: {
           facingMode: 'user',

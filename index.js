@@ -14,7 +14,9 @@ const MIN_CORNERS = 5;
 const QUALITY_LEVEL = 0.01;
 const MIN_DISTANCE = 10;
 
-console.log("yolo")
+// Call the function initially and whenever the window is resized
+// setVideoSize();
+// window.addEventListener('resize', setVideoSize);
 
 // Load opencv when needed
 async function loadOpenCv(uri) {

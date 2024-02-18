@@ -1,0 +1,39 @@
+.user-video {
+    position: relative;
+    width: 480px;
+    height: 360px;
+}
+
+.overlay-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 480px;
+    height: 360px;
+}
+
+#remote-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 480px;
+    height: 360px;
+  }
+
+#video-holder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+canvas {
+    aspect-ratio: auto 480px / 360px;
+    width: 480px;
+    height: 360px;
+}

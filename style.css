@@ -8,6 +8,8 @@
   position: absolute;
   top: 0;
   left: 0;
+  width: 640px;
+  height: 480px;
 }
 
 canvas {
