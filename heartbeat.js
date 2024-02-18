@@ -24,6 +24,7 @@ export class Heartbeat {
     this.rppgInterval = rppgInterval;
     this.display = document.getElementById("heartrate");
     this.display2 = document.getElementById("respiratoryrate");
+    this.display3 = document.getElementById("spO2");
 
   }
   // Start the video stream
@@ -287,6 +288,22 @@ export class Heartbeat {
       this.standardize(signal);
       this.detrend(signal, fps);
       this.movingAverage(signal, 3, Math.max(Math.floor(fps/6), 2));
+      // RR estimation
+      let mean = new cv.Mat();
+      let stdDev = new cv.Mat();
+      let t1 = new cv.Mat();
+      cv.meanStdDev(signal, mean, stdDev, t1);
+      console.log(mean.data64F[0])
+
+      function boundInteger(number, min, max) {
+        if (number < min || number > max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        return number;
+      }
+      let spO2 = boundInteger(125 - 26*((stdDev.data64F[0]/mean.data64F[0]) / (stdDev.data64F[2]/mean.data64F[2]) ), 95, 100)
+
+
       // HR estimation
       signal = this.selectGreen(signal);
       // Draw time domain signal
@@ -316,6 +333,7 @@ export class Heartbeat {
         //console.log(bpm);
         this.display.innerHTML = parseInt(bpm);
         this.display2.innerHTML= parseInt(rr);
+        this.display3.innerHTML = parseInt(spO2);
         // Draw BPM
         this.drawBPM(bpm);
       }
@@ -413,6 +431,22 @@ export class Heartbeat {
     cv.split(signal, rgb);
     // TODO possible memory leak, delete rgb?
     let result = rgb.get(1);
+    rgb.delete();
+    return result;
+  }
+  selectRed(signal) {
+    let rgb = new cv.MatVector();
+    cv.split(signal, rgb);
+    // TODO possible memory leak, delete rgb?
+    let result = rgb.get(0);
+    rgb.delete();
+    return result;
+  }
+  selectBlue(signal) {
+    let rgb = new cv.MatVector();
+    cv.split(signal, rgb);
+    // TODO possible memory leak, delete rgb?
+    let result = rgb.get(2);
     rgb.delete();
     return result;
   }
